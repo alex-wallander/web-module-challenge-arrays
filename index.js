@@ -83,10 +83,9 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(array){
-   const addFlavor = [... originalFlavors];
-   addFlavor.unshift('Rainbow Sherbert');
-   return addFlavor;
+function addFlavor(tempArray, flavor){
+   tempArray.unshift(flavor);
+   return tempArray;
 }
 
 
@@ -140,13 +139,15 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(array, flavor){
-    originalFlavors.splice(30, 1);
-    if(array.length === 30);
-    return array;
+function removeFlavorByName(newArray, flavor){
+    for(let i = 0; i < newArray.length; i++){
+        if(newArray[i] === flavor){
+            newArray.splice(i, 1);
+        }
+    }
+    return newArray;
 }
-
-
+console.log(removeFlavorByName(originalFlavors, 'Vanilla'));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -168,8 +169,14 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(array, chocolate){
+    let newArr = [];
+    for(let i=0; i < array.length; i++){
+        if(array[i].includes(chocolate)){
+            newArr.push(array[i]);
+        }
+    }
+    return newArr;
 }
 
 
@@ -307,4 +314,3 @@ export default{
     getAverageWordLength,
     getRandomFlavors
 }
-
